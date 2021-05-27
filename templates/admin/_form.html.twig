@@ -1,0 +1,45 @@
+{{ form_start(form) }}
+<div class="mb-3 row">
+    <div class="col-4">
+        {{ form_label(form.nom, 'Votre nom ', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <div class=" col-4">
+        {{ form_label(form.prenom, 'Votre prenom ', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.prenom, {'attr': {'class': 'form-control'}}) }}
+    </div>
+</div>
+
+<div class="mb-3 row">
+    <div class="col-4">
+        {{ form_label(form.email, 'Votre email ', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <div class=" col-4">
+        {{ form_label(form.numTel, 'Votre numero de telephone ', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.numTel, {'attr': {'class': 'form-control'}}) }}
+    </div>
+</div>
+<div class="mb-3 row">
+   
+    <div class=" col-4">
+        {{ form_label(form.age, 'Votre age ', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.age, {'attr': {'class': 'form-control'}}) }}
+    </div>
+</div>
+<div class="mb-3 row">
+    <div class="col-4">
+        {{ form_label(form.sexe, 'Votre sexe ', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.sexe, {'attr': {'class': 'form-control'}}) }}
+    </div>
+</div>
+{{ form_rest (form)}}
+
+<div class="row">
+    <div class="col-4">
+        <button class="btn btn-success">{{ button_label|default('Save') }}</button>
+
+    </div>
+
+</div>
+{{ form_end(form) }}

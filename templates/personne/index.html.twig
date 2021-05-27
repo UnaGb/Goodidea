@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Personne index{% endblock %}
+
+{% block body %}
+    <h1>Personne index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Email</th>
+                <th>NumTel</th>
+                <th>Age</th>
+                <th>Sexe</th>
+                <th>CreatedAt</th>
+                <th>UpdateAt</th>
+                <th>IsActivated</th>
+                <th>IsDeleted</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for personne in personnes %}
+            <tr>
+                <td>{{ personne.id }}</td>
+                <td>{{ personne.nom }}</td>
+                <td>{{ personne.prenom }}</td>
+                <td>{{ personne.email }}</td>
+                <td>{{ personne.numTel }}</td>
+                <td>{{ personne.age }}</td>
+                <td>{{ personne.sexe }}</td>
+                <td>{{ personne.createdAt ? personne.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ personne.updateAt ? personne.updateAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ personne.isActivated ? 'Yes' : 'No' }}</td>
+                <td>{{ personne.isDeleted ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('personne_show', {'id': personne.id}) }}">show</a>
+                    <a href="{{ path('personne_edit', {'id': personne.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('personne_new') }}">Create new</a>
+{% endblock %}

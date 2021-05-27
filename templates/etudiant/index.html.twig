@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Etudiant index{% endblock %}
+
+{% block body %}
+    <h4>La liste des étudiants</h4>
+
+    <table class="table  table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Email</th>
+                <th>NumTel</th>
+                <th>Age</th>
+                <th>Sexe</th>
+                <th>CreatedAt</th>
+                <th>UpdateAt</th>
+                <th>IsActivated</th>
+                <th>IsDeleted</th>
+                <th>NumMat</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for etudiant in etudiants %}
+            <tr>
+                <td>{{ etudiant.id }}</td>
+                <td>{{ etudiant.nom }}</td>
+                <td>{{ etudiant.prenom }}</td>
+                <td>{{ etudiant.email }}</td>
+                <td>{{ etudiant.numTel }}</td>
+                <td>{{ etudiant.age }}</td>
+                <td>{{ etudiant.sexe }}</td>
+                <td>{{ etudiant.createdAt ? etudiant.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ etudiant.updateAt ? etudiant.updateAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ etudiant.isActivated ? 'Yes' : 'No' }}</td>
+                <td>{{ etudiant.isDeleted ? 'Yes' : 'No' }}</td>
+                <td>{{ etudiant.numMat }}</td>
+                <td>
+                    <a class="" href="{{ path('etudiant_show', {'id': etudiant.id}) }}">show</a>
+                    <a class="" href="{{ path('etudiant_edit', {'id': etudiant.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('etudiant_new') }}" class="btn btn-warning"> <i class="bi bi-file-plus-fill"></i> Create new</a>
+{% endblock %}

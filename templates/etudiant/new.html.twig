@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Formulaire de création d'un nouvel eudiant {% endblock %}
+
+{% block header %} {% endblock %}
+{% block content %}
+<div class="col-md-6 mx-auto">
+ <h4 class="text-center">Créer un nouvel etudiant</h4>
+    {{ include('etudiant/_form.html.twig') }}
+
+    <div class="row back">
+        <div class="col-4">
+            <a href="{{ path('etudiant_index') }}" class="btn btn-secondary "> <i class="bi bi-arrow-90deg-left"></i> Retour à la liste </a>
+
+        </div>
+    </div>
+    </div>
+{% endblock %}

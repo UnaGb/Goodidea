@@ -1,0 +1,23 @@
+body {
+    background-color: rgb(247, 235, 235);
+
+}
+
+.header{
+    margin-top: 10px!important;
+}
+
+.main {
+    margin-top: 15px;
+}
+
+.contour {
+    position: relative;
+    margin: 1rem -.75rem 0;
+    border: solid #dee2e6;
+}
+
+.back {
+    margin-top: 15px;
+}
+

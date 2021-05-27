@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin index{% endblock %}
+
+{% block body %}
+    <h1>Admin index</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Email</th>
+                <th>NumTel</th>
+                <th>Age</th>
+                <th>Sexe</th>
+                <th>CreatedAt</th>
+                <th>UpdateAt</th>
+                <th>IsActivated</th>
+                <th>IsDeleted</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for admin in admins %}
+            <tr>
+                <td>{{ admin.id }}</td>
+                <td>{{ admin.nom }}</td>
+                <td>{{ admin.prenom }}</td>
+                <td>{{ admin.email }}</td>
+                <td>{{ admin.numTel }}</td>
+                <td>{{ admin.age }}</td>
+                <td>{{ admin.sexe }}</td>
+                <td>{{ admin.createdAt ? admin.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ admin.updateAt ? admin.updateAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ admin.isActivated ? 'Yes' : 'No' }}</td>
+                <td>{{ admin.isDeleted ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('admin_show', {'id': admin.id}) }}">show</a>
+                    <a href="{{ path('admin_edit', {'id': admin.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+ <a href="{{ path('admin_new')}}" class="btn btn-warning"> <i class="bi bi-file-plus-fill"></i> Create new</a>
+    <a href="{{ path('admin_new')}}">Create new</a>
+{% endblock %}

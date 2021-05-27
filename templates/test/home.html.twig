@@ -1,0 +1,27 @@
+{% extends('base.html.twig') %}
+
+
+{% block title %}Accueil{% endblock %}
+{% block header %}
+    <h1> {{ titre }}</h1>
+{% endblock %}
+
+{% block content %} 
+ <body style ="background-image:url('{{ asset('image/illu.png') }}');"
+
+<p>
+         Trouvez  sur Ifri Collab  des  collaborateurs engagés<br> qui correspondent  à la fois au profil recherché,<br>
+         et à l'esprit de votre projet
+        </p>
+    <div class="row back">
+        <div class="col-4">
+        
+            <a href="{{ path('etudiant_new') }}" class="btn btn-primary">Commencer </a>
+        </div>
+         
+        
+    </div>
+    </body>
+{% endblock %}
+
+

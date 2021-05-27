@@ -1,0 +1,78 @@
+<ul class="nav nav-pills  header">
+    <li class="nav-item"><a style="color:black; font-weight:bold"  href="{{ path('home_action') }}" class="nav-link"> IFRI Collab  </a></li>
+    <li class="nav-item"><a  href="{{ path('app_login') }}" class="nav-link {% if app.request.get('_route') == "app_login" %} active {% endif %} "> Connexion  </a></li>
+    
+    <li class="nav-item dropdown  ">
+
+        <a class="nav-link dropdown-toggle nav-link {% if app.request.get('_route') == "etudiant_new" %} active {% endif %}" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Inscription </a>
+            <ul class="dropdown-menu">
+            <li><a  href="{{ path('etudiant_new') }}" class=" dropdown-item">Etudiant</a></li>
+            <li><a class="dropdown-item" href="{{ path('admin_new') }}" >Admin </a></li>
+        </ul>
+    </li>
+    
+
+    {% if app.user %}
+    <li class="nav-item"><a  href="{{ path('home_action') }}" class="nav-link "> Accueil </a></li>
+    <li class="nav-item" ><a href="{{ path('admin_dash') }}" class="nav-link"> Administration </a></li>
+    <li class="nav-item" ><a href="{{ path('ifri') }}" class="nav-link"> Aller à IFRI</a></li>
+    <li class="nav-item dropdown">
+        
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{{ path('etudiant_index') }}" > Liste des etudiants </a></li>
+            <li><a class="dropdown-item" href="{{ path('etudiant_new') }}" > Ajouter un  etudiant </a></li>
+        </ul>
+    </li>
+    <li class="nav-item dropdown" >
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Gestion des administrateurs</a>
+
+        <ul class="dropdown-menu">
+            <li ><a class="dropdown-item" href="{{ path('admin_index') }}" > Liste des etudiants </a></li>
+            <li><a class="dropdown-item"  href="{{ path('admin_new') }}" > Ajouter un etudiant </a></li>
+        </ul>
+    </li>
+        <li class="nav-item"><a  href="{{ path('app_logout') }}" class="nav-link "> Deconnexion </a></li>
+
+    {% endif %}
+
+    <li class="nav-item"><a  href="{{ path('faq_action') }}" class="nav-link {% if app.request.get('_route') == "app_login" %} active {% endif %} "> FAQ  </a></li>
+    <li class="nav-item"><a  href="{{ path('about_action') }}" class="nav-link"> A propos </a></li>
+
+
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+    {% if app.user %}
+    <li class="nav-item"><a  href="{{ path('home_action') }}" class="nav-link "> Accueil </a></li>
+    <li class="nav-item" ><a href="{{ path('admin_dash') }}" class="nav-link"> Administration </a></li>
+    <li class="nav-item" ><a href="{{ path('ifri') }}" class="nav-link"> Aller à IFRI</a></li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Gestion des etudiants </a>
+
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{{ path('etudiant_index') }}" > Liste des etudiants </a></li>
+            <li><a class="dropdown-item" href="{{ path('etudiant_new') }}" > Ajouter un  etudiant </a></li>
+        </ul>
+    </li>
+    <li class="nav-item dropdown" >
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Gestion des administrateurs</a>
+
+        <ul class="dropdown-menu">
+            <li ><a class="dropdown-item" href="{{ path('admin_index') }}" > Liste des etudiants </a></li>
+            <li><a class="dropdown-item"  href="{{ path('admin_new') }}" > Ajouter un etudiant </a></li>
+        </ul>
+    </li>
+        <li class="nav-item"><a  href="{{ path('app_logout') }}" class="nav-link "> Deconnexion </a></li>
+
+    {% endif %}
+
+</ul>

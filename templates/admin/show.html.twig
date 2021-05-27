@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin{% endblock %}
+
+{% block body %}
+    <h1>Admin</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ admin.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ admin.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ admin.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ admin.email }}</td>
+            </tr>
+            <tr>
+                <th>NumTel</th>
+                <td>{{ admin.numTel }}</td>
+            </tr>
+            <tr>
+                <th>Age</th>
+                <td>{{ admin.age }}</td>
+            </tr>
+            <tr>
+                <th>Sexe</th>
+                <td>{{ admin.sexe }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ admin.createdAt ? admin.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UpdateAt</th>
+                <td>{{ admin.updateAt ? admin.updateAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>IsActivated</th>
+                <td>{{ admin.isActivated ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>IsDeleted</th>
+                <td>{{ admin.isDeleted ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_index') }}">back to list</a>
+
+    <a href="{{ path('admin_edit', {'id': admin.id}) }}">edit</a>
+
+    {{ include('admin/_delete_form.html.twig') }}
+{% endblock %}

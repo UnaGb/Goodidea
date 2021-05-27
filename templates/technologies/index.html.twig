@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Technologies index{% endblock %}
+
+{% block body %}
+    <h1>Technologies index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Libelle</th>
+                <th>Description</th>
+                <th>LibUnique</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for technology in technologies %}
+            <tr>
+                <td>{{ technology.id }}</td>
+                <td>{{ technology.libelle }}</td>
+                <td>{{ technology.description }}</td>
+                <td>{{ technology.libUnique }}</td>
+                <td>
+                    <a href="{{ path('technologies_show', {'id': technology.id}) }}">show</a>
+                    <a href="{{ path('technologies_edit', {'id': technology.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('technologies_new') }}">Create new</a>
+{% endblock %}

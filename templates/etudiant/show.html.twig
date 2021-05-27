@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Etudiant{% endblock %}
+
+{% block body %}
+    <h1>Etudiant</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ etudiant.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ etudiant.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ etudiant.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ etudiant.email }}</td>
+            </tr>
+            <tr>
+                <th>NumTel</th>
+                <td>{{ etudiant.numTel }}</td>
+            </tr>
+            <tr>
+                <th>Age</th>
+                <td>{{ etudiant.age }}</td>
+            </tr>
+            <tr>
+                <th>Sexe</th>
+                <td>{{ etudiant.sexe }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ etudiant.createdAt ? etudiant.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UpdateAt</th>
+                <td>{{ etudiant.updateAt ? etudiant.updateAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>IsActivated</th>
+                <td>{{ etudiant.isActivated ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>IsDeleted</th>
+                <td>{{ etudiant.isDeleted ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>NumMat</th>
+                <td>{{ etudiant.numMat }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('etudiant_index') }}">back to list</a>
+
+    <a href="{{ path('etudiant_edit', {'id': etudiant.id}) }}">edit</a>
+
+    {{ include('etudiant/_delete_form.html.twig') }}
+{% endblock %}

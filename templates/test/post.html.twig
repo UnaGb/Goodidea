@@ -1,0 +1,25 @@
+{% extends('base.html.twig') %}
+
+{% block title %}Fil d'Actualité{% endblock %}
+{% block header %}
+    <h1 class="text-center"> {{ titre }}</h1>
+{% endblock %}
+
+{% block content %} 
+
+
+ <body>
+<form>
+  <div class="mb-3 col-8">
+  <label for="exampleFormControlTextarea1" class="form-label">Post</label>
+  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+</div>
+  
+  <button type="submit" class="btn btn-primary">Poster</button>
+</form>
+    </body>
+
+    
+{% endblock %}
+
+
